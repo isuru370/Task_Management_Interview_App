@@ -17,6 +17,7 @@
        android:layout_marginTop="10dp"/>
 
     <EditText
+        android:id="@+id/categoryId"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Category id"
@@ -26,6 +27,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginRight="10dp"/>
     <EditText
+        android:id="@+id/categoryName"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:hint="Category Name"
@@ -36,7 +38,7 @@
         android:layout_marginRight="10dp"/>
 
     <Button
-        android:id="@+id/userRegisterBtn"
+        android:id="@+id/catSave"
         android:layout_width="190dp"
         android:layout_height="45dp"
         android:text="Category Save"

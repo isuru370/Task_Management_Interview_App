@@ -1,5 +1,6 @@
 package com.example.taskmanage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -12,13 +13,34 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.taskmanage.modelcalss.category;
+import com.example.taskmanage.modelcalss.task;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Taskmanagement extends AppCompatActivity {
 
-     EditText dueDate;
+     EditText dueDate,uTitle,uDescription,uPropty;
+     Spinner uSppiner;
+     ImageView uDelete,uEdit;
+     private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +48,13 @@ public class Taskmanagement extends AppCompatActivity {
         setContentView(R.layout.activity_taskmanagement);
 
         dueDate = findViewById(R.id.datePickerText);
+        uTitle = findViewById(R.id.userTitle);
+        uDescription = findViewById(R.id.edtInput);
+        uPropty = findViewById(R.id.priorityLevel);
+        uSppiner = findViewById(R.id.categoryId);
+        uDelete = findViewById(R.id.delete);
+        uEdit = findViewById(R.id.edit);
+        db = FirebaseFirestore.getInstance();
         findViewById(R.id.datePicker).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +97,27 @@ public class Taskmanagement extends AppCompatActivity {
                 dialog.getWindow().setGravity(Gravity.BOTTOM);
             }
         });
+        db.collection("Category").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if(queryDocumentSnapshots.isEmpty()){
+                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                    for (DocumentSnapshot d : list) {
+                        category cat = d.toObject(category.class);
+                        List<String> list2 = new ArrayList<String>();
+                        list2.add(cat.getCatName());
+                        ArrayAdapter arrayAdapter = new ArrayAdapter(
+                                getApplicationContext(),
+                                android.R.layout.simple_spinner_item,list2
+                        );
+                        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        uSppiner.setAdapter(arrayAdapter);
+
+                    }
+                }
+            }
+        });
 
         findViewById(R.id.nextKey).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +129,33 @@ public class Taskmanagement extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Taskmanagement.this,TaskTrackingProgress.class));
+            }
+        });
+        findViewById(R.id.taskAddBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!dueDate.getText().toString().isEmpty() != uSppiner.getSelectedItem().toString().isEmpty()){
+                    task uTasks = new task();
+                    uTasks.setTitle(uTitle.getText().toString());
+                    uTasks.setDescrption(uDescription.getText().toString());
+                    uTasks.setDueDate(dueDate.getText().toString());
+                    uTasks.setProptyLavel(uPropty.getText().toString());
+                    uTasks.setCategory(uSppiner.getSelectedItem().toString());
+                    db.collection("UserTask").add(uTasks).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+                            Toast.makeText(Taskmanagement.this, "Date Save Success", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Taskmanagement.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    Toast.makeText(Taskmanagement.this, "getMessage()", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

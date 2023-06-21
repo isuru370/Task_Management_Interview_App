@@ -127,6 +127,7 @@
             android:paddingLeft="20dp" />
 
         <Spinner
+            android:id="@+id/categoryId"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@drawable/custom_textfiled"
@@ -136,7 +137,7 @@
             android:layout_marginLeft="10dp"/>
 
         <Button
-            android:id="@+id/userRegisterBtn"
+            android:id="@+id/taskAddBtn"
             android:layout_width="290dp"
             android:layout_height="45dp"
             android:text="Add Data"
@@ -153,6 +154,7 @@
            android:layout_gravity="center_horizontal">
 
            <ImageView
+               android:id="@+id/delete"
                android:layout_width="50dp"
                android:layout_marginRight="30dp"
                android:layout_height="50dp"
@@ -160,6 +162,7 @@
                android:background="@color/purple_200"/>
 
            <ImageView
+               android:id="@+id/edit"
                android:layout_width="50dp"
                android:layout_height="50dp"
                android:src="@drawable/ic_baseline_edit_24"
