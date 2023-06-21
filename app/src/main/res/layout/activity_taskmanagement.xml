@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Taskmanagement">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="end"
+           android:orientation="horizontal">
+
+           <ImageView
+               android:id="@+id/notify"
+               android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:src="@drawable/ic_baseline_notifications_24"
+               android:layout_gravity="end"
+               android:layout_marginRight="10dp"
+               android:layout_marginTop="10dp"/>
+
+           <ImageView
+               android:id="@+id/nextKey"
+               android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:src="@drawable/ic_baseline_navigate_next_24"
+               android:layout_gravity="end"
+               android:layout_marginRight="10dp"
+               android:layout_marginTop="10dp"/>
+
+       </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Task Management"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:background="@drawable/rounded"
+            android:backgroundTint="@color/teal_700"
+            android:textColor="@color/purple_200"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_textfiled"
+            android:hint="search"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="50dp"/>
+
+        <EditText
+            android:id="@+id/userTitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_textfiled"
+            android:hint="title"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            />
+        <EditText
+            android:id ="@+id/edtInput"
+            android:layout_width ="match_parent"
+            android:layout_height ="150dp"
+            android:layout_weight ="1"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines ="4"
+            android:maxLength ="2000"
+            android:background="@drawable/custom_textfiled"
+            android:hint ="Description"
+            android:scrollHorizontally="false"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"/>
+
+
+        <EditText
+            android:id="@+id/datePickerText"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_textfiled"
+            android:hint="Due Date"
+            android:enabled="false"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="20dp"
+            android:inputType="text"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:id="@+id/datePicker"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_date_range_24"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"/>
+
+
+        <EditText
+            android:id="@+id/priorityLevel"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/custom_textfiled"
+            android:hint="priority level"
+            android:inputType="text"
+            android:paddingLeft="20dp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_textfiled"
+            android:layout_marginTop="20dp"
+            android:entries="@array/assigned_category."
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <Button
+            android:id="@+id/userRegisterBtn"
+            android:layout_width="290dp"
+            android:layout_height="45dp"
+            android:text="Add Data"
+            android:background="@drawable/custom_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"/>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="40dp"
+           android:layout_marginBottom="20dp"
+           android:layout_gravity="center_horizontal">
+
+           <ImageView
+               android:layout_width="50dp"
+               android:layout_marginRight="30dp"
+               android:layout_height="50dp"
+               android:src="@drawable/ic_baseline_delete_24"
+               android:background="@color/purple_200"/>
+
+           <ImageView
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/ic_baseline_edit_24"
+               android:background="@color/purple_200"/>
+           <ImageView
+               android:id="@+id/nextKey2"
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:layout_marginLeft="100dp"
+               android:src="@drawable/ic_baseline_navigate_next_24" />
+
+       </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

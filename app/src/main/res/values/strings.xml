@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Task Manage</string>
+
+    <string-array name="assigned_category.">
+        <item>Assigned Category</item>
+        <item>Category 01</item>
+        <item>Category 02</item>
+        <item>Category 03</item>
+        <item>Category 04</item>
+    </string-array>
+
+
+</resources>

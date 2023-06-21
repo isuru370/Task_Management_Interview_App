@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome The TaskManage"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_200"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:src="@drawable/pngtree_drink_drink_stickman_image_1399658"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/userEmail"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/custom_textfiled"
+        android:hint="Email"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/userPassword"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/custom_textfiled"
+        android:hint="Password"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/userConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/custom_textfiled"
+        android:hint="Confirm Password"
+        android:layout_marginLeft="10dp"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:id="@+id/userRegisterBtn"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:text="Register"
+        android:background="@drawable/custom_button"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>
